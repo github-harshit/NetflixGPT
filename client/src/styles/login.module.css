@@ -30,13 +30,19 @@
       color: #fff;
       border: 1px solid #333;
       border-radius: 10px;
-     
-       
-
+      padding-left: 20px;
  }
+  .formContainer form input:active{
+     background-color: #333;
+     color: #fff;
+    
+  }
+
+
+  
  .formContainer form input::placeholder{
     color: #8c8c8c;
-     padding-left: 20px;
+     
  }
   .formContainer form button{
       width: 70%;
@@ -45,6 +51,7 @@
       border: 1px solid red;
       color: white;
       border-radius: 10px;
+      cursor: pointer;
 
   }
    p{
@@ -56,6 +63,11 @@
   .signup{
      color: white;
      cursor: pointer;
+  }
+  .err{
+     color: #e87c03;
+     font-size: medium;
+     text-align: left;
   }
    
  

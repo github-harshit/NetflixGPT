@@ -1,8 +1,24 @@
-import React from 'react'
+import React, {useRef, useState} from 'react'
 import Header from './Header'; 
 import styles from "../styles/login.module.css"; 
 import { Link } from 'react-router-dom';
+import { checkValidateLogin } from '../utils/validate';
+
 function Login() {
+   const [errMsg , setErrMsg] = useState(null);  
+ 
+    const handleClick = (event)=>{
+        event.preventDefault(); 
+         console.log(email.current.value); 
+         console.log(password.current.value);
+         const res = checkValidateLogin(email.current.value, password.current.value); 
+          setErrMsg(res);  
+
+    }
+     const email = useRef(); 
+     const password = useRef(); 
+
+    
   return (
     <div className='container'>
       <Header/>
@@ -12,11 +28,12 @@ function Login() {
       
       < div className={styles.formContainer}>
        <h2> Sign In </h2>
-          <form >
+          <form onSubmit={handleClick} >
               
-          <input type='text' name='email' placeholder='Email or phone number '/> 
-          <input type='password' name='password' placeholder='Password'/>
+          <input type='text' name='email' placeholder='Email or phone number ' ref={email} autoComplete='off' /> 
+          <input type='password' name='password' placeholder='Password' ref={password}/>
           <button > Sign In </button>
+            { errMsg!==null && <p className= {styles.err}> {errMsg} </p>}
           <p> New to Netflix? <Link to= "/signup" className= {styles.link}><span className={styles.signup}> Sign Up Now  </span></Link></p>
         </form>
        </div>

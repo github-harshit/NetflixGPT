@@ -1,9 +1,23 @@
-import React from 'react'; 
+import React, {useState, useRef} from 'react'; 
 import Header from './Header';
 import styles from "../styles/signup.module.css"
 import { Link } from 'react-router-dom';
+import { checkValidateSignUp } from '../utils/validate';
 
 function SignUp() {
+     const [errMsg, setErrMsg] = useState(null); 
+
+     const username = useRef();
+     const email = useRef(); 
+     const password = useRef(); 
+     const confirmPassword = useRef(); 
+
+     const handleClick = (event)=>{
+         event.preventDefault(); 
+         const res = checkValidateSignUp(email.current.value, password.current.value,confirmPassword.current.value ); 
+         setErrMsg(res); 
+     }
+     
   return (
     <div className='container'>
     <Header/>
@@ -13,12 +27,13 @@ function SignUp() {
     
     < div className={styles.formContainer}>
      <h2> Sign Up </h2>
-        <form >
-            
-        <input type='text' name='email' placeholder='Email or phone number '/> 
-        <input type='password' name='password' placeholder='Password'/>
-        <input type='password' name='conformPassword' placeholder='Confirm Password'/>
+        <form onSubmit={handleClick} >
+        <input type='text' name='username' placeholder='Enter your Username' autoComplete='off' ref={username} />    
+        <input type='text' name='email' placeholder='Email or phone number' autoComplete='off' ref={email} /> 
+        <input type='password' name='password' placeholder='Password' ref={password}/>
+        <input type='password' name='conformPassword' placeholder='Confirm Password' ref={confirmPassword}/>
         <button > Sign Up  </button>
+         {errMsg!==null && <p className= {styles.err}>{errMsg}</p> }
         <p> Already Registerd ? <Link className={styles.link} to="/" ><span className={styles.signup} > Sign In  </span></Link></p>
       </form>
      </div>
