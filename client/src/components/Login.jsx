@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { checkValidateLogin } from '../utils/validate';
 import {  signInWithEmailAndPassword } from "firebase/auth";
  import {auth} from "../utils/firebase"
-
+import { background_url } from '../utils/constants';
 function Login() {
    const navigate = useNavigate(); 
    const [errMsg , setErrMsg] = useState(null);  
@@ -44,7 +44,7 @@ function Login() {
     <div className='container'>
       <Header/>
       <div className={styles.background}>
-      <img src='https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg'></img>
+      <img src={background_url}></img>
      </div>
       
       < div className={styles.formContainer}>

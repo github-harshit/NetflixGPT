@@ -1,0 +1,32 @@
+.container{
+    background-color: rgba(0, 0, 0, 0.973);
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    top:20%; 
+    left: 30%;
+    z-index: 1000;
+    position: absolute;
+}
+.form{
+     display: flex;
+     width: 100%;
+     justify-content: center;
+    
+}
+.input{
+     width: 70%;
+     margin: 5px;
+}
+.btn{
+    background-color: rgb(185 28 28);
+    color: white;
+    padding: 10px 5px;
+    width:30%; 
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}

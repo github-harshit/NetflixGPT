@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "../styles/movieList.module.css"
 import MovieCard from './MovieCard'
 function MovieList({title, movies}) {
-     console.log(movies); 
+    
   return (
     <div className={styles.container}>
         <div>
