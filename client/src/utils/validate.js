@@ -1,3 +1,5 @@
+
+
 export const checkValidateLogin = (email, password)=>{
      const isEmailValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email); 
      const isPasswordValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password); 
@@ -24,4 +26,5 @@ export const checkValidateLogin = (email, password)=>{
        return null; 
      
  }
+ 
  

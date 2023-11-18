@@ -1,18 +1,39 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import Header from './Header'; 
 import styles from "../styles/login.module.css"; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { checkValidateLogin } from '../utils/validate';
+import {  signInWithEmailAndPassword } from "firebase/auth";
+ import {auth} from "../utils/firebase"
 
 function Login() {
+   const navigate = useNavigate(); 
    const [errMsg , setErrMsg] = useState(null);  
+
+ 
  
     const handleClick = (event)=>{
         event.preventDefault(); 
-         console.log(email.current.value); 
-         console.log(password.current.value);
+         
          const res = checkValidateLogin(email.current.value, password.current.value); 
-          setErrMsg(res);  
+         
+          if(errMsg){
+             setErrMsg(res);  
+             return ; 
+          }
+          signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+          .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+             setErrMsg(errorMessage)
+          });
+
 
     }
      const email = useRef(); 

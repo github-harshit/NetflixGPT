@@ -1,10 +1,15 @@
 import React, {useState, useRef} from 'react'; 
 import Header from './Header';
 import styles from "../styles/signup.module.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { checkValidateSignUp } from '../utils/validate';
-
+import { auth } from '../utils/firebase.js';
+ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+ import { useDispatch } from 'react-redux';
+import { addUser } from '../redux/userSlice.js';
 function SignUp() {
+   const dispatch = useDispatch(); 
+   const navigate = useNavigate(); 
      const [errMsg, setErrMsg] = useState(null); 
 
      const username = useRef();
@@ -15,7 +20,43 @@ function SignUp() {
      const handleClick = (event)=>{
          event.preventDefault(); 
          const res = checkValidateSignUp(email.current.value, password.current.value,confirmPassword.current.value ); 
-         setErrMsg(res); 
+         
+         if(errMsg){
+           setErrMsg(res);
+           return ; 
+         }
+          // signup logic 
+
+            createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+            .then((userCredential) => {
+              // Signed up 
+              const user = userCredential.user;
+              updateProfile(user,  {
+                displayName: username.current.value
+              }).then(() => {
+                const {uid, email, displayName} = auth.currentUser; 
+                dispatch(addUser({
+                  uid:uid, 
+                  email:email,
+                  displayName:displayName
+                   
+                }))
+               
+              }).catch((error) => {
+               setErrMsg(error)
+               
+              });
+             
+             
+               
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              setErrMsg(errorMessage); 
+              // ..
+            });
+
      }
      
   return (
