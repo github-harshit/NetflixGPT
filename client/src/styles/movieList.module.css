@@ -1,0 +1,18 @@
+.container{
+ background-color:transparent; 
+ color: white;
+}
+.heading{
+     padding-left: 10px;
+}
+
+.moviesContainer{
+   
+     display: flex;
+     overflow-x: auto; 
+    
+     border: 1px solid black;
+}
+.moviesContainer:-webkit-scrollbar {
+    display: none; /* Hide the scrollbar */
+  }
