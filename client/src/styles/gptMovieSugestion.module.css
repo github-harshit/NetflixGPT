@@ -1,5 +1,5 @@
 .container{
-     
+      width: 100%;
       background-color: rgba(0, 0, 0, 0.9);;
      color:white; 
      z-index: 3000; 
@@ -12,6 +12,6 @@
 .box{
       display: flex;
       overflow-x: auto;
-       
+       width: 100%;
       align-items: center;
 }

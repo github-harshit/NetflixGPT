@@ -35,3 +35,16 @@
     color: white;
      
 }
+
+@media (max-width:450px){
+     .container{
+         width: 90%;
+         left: 5%;
+     }
+}
+@media(min-width:450px) and (max-width:1220px){
+     .container{
+         width: 70%;
+         left: 15%;
+     }
+}

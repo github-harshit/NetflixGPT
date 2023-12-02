@@ -5,10 +5,8 @@ import { background_url } from '../utils/constants';
 import GPTMovieSuggestion from './GPTMovieSuggestion';
 function GPTSearch() {
   return (
-    <div className={styles.container}>
-     <div className={styles.background}>
-      <img src={background_url}></img>
-     </div>
+    <div style={{backgroundImage: `url(${background_url})`}} className={styles.container}>
+     
 
          <GPTSearchBar/>
           <GPTMovieSuggestion/>
