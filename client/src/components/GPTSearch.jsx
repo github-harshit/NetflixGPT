@@ -2,6 +2,7 @@ import React from 'react'
 import GPTSearchBar from './GPTSearchBar'; 
 import styles from "../styles/gptSearch.module.css"; 
 import { background_url } from '../utils/constants';
+import GPTMovieSuggestion from './GPTMovieSuggestion';
 function GPTSearch() {
   return (
     <div className={styles.container}>
@@ -10,6 +11,7 @@ function GPTSearch() {
      </div>
 
          <GPTSearchBar/>
+          <GPTMovieSuggestion/>
     </div>
   )
 }

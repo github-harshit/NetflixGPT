@@ -16,7 +16,7 @@ function Header() {
     const gptShow = useSelector((state)=>state.gpt.showGPTSearch)
    const handleClick = ()=>{
     signOut(auth).then(() => {
-
+    navigate("/"); 
      
        
     }).catch((error) => {
@@ -45,7 +45,7 @@ function Header() {
       } else {
         // User is signed out
         dispatch(removeUser()); 
-        navigate("/"); 
+        
        
       }
     });

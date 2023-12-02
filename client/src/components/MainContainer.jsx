@@ -8,7 +8,14 @@ function MainContainer() {
     if(movies===null){
          return ; 
     }
-     const mainMovie = movies[0];
+     
+     const getRandomMovie = (max, min)=>{
+         const rand = Math.floor(Math.random() *(max-min+1) + min); 
+         return rand; 
+       
+     }
+     const randomInteger = getRandomMovie(0, movies.length-1); 
+     const mainMovie = movies[randomInteger];
       
   return (
     <div className={styles.container}>

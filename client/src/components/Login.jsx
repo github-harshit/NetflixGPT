@@ -9,9 +9,9 @@ import { background_url } from '../utils/constants';
 function Login() {
    const navigate = useNavigate(); 
    const [errMsg , setErrMsg] = useState(null);  
+   const email = useRef(); 
+   const password = useRef(); 
 
- 
- 
     const handleClick = (event)=>{
         event.preventDefault(); 
          
@@ -36,16 +36,12 @@ function Login() {
 
 
     }
-     const email = useRef(); 
-     const password = useRef(); 
-
+     
     
   return (
-    <div className='container'>
+    <div style={{backgroundImage: `url(${background_url})`}}  className={styles.container}>
       <Header/>
-      <div className={styles.background}>
-      <img src={background_url}></img>
-     </div>
+     
       
       < div className={styles.formContainer}>
        <h2> Sign In </h2>

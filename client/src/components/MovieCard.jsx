@@ -2,6 +2,9 @@ import React from 'react';
 import { img_cdn } from '../utils/constants';
 import styles from "../styles/movieCard.module.css"
 function MovieCard({movie}) {
+   if(!movie.poster_path){
+     return null; 
+   }
      
   return (
     <div className={styles.container}>

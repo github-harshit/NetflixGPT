@@ -11,7 +11,7 @@ function VideoBackground({id}) {
    
     <div className={styles.container}>
         <iframe className={styles.frame} 
-        src= {src}  title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+        src= {src}  title=" Trailer Video" allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture; " ></iframe>
     </div>
   )
 }

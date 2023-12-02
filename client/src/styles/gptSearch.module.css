@@ -1,4 +1,8 @@
 
 .background{
-    
+    position: fixed;
+   
+}
+.background img {
+     width: 100%;
 }

@@ -1,0 +1,17 @@
+.container{
+     
+      background-color: rgba(0, 0, 0, 0.9);;
+     color:white; 
+     z-index: 3000; 
+     margin-top:5rem; 
+     position: absolute;
+     top:35%;
+     
+      
+}
+.box{
+      display: flex;
+      overflow-x: auto;
+       
+      align-items: center;
+}

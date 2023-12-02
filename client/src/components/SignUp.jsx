@@ -7,6 +7,7 @@ import { auth } from '../utils/firebase.js';
  import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
  import { useDispatch } from 'react-redux';
 import { addUser } from '../redux/userSlice.js';
+import { background_url } from '../utils/constants';
 function SignUp() {
    const dispatch = useDispatch(); 
    const navigate = useNavigate(); 
@@ -60,11 +61,9 @@ function SignUp() {
      }
      
   return (
-    <div className='container'>
+    <div style={{backgroundImage: `url(${background_url})`}} className={styles.container}>
     <Header/>
-    <div className={styles.background}>
-    <img src='https://assets.nflxext.com/ffe/siteui/vlv3/ab4b0b22-2ddf-4d48-ae88-c201ae0267e2/0efe6360-4f6d-4b10-beb6-81e0762cfe81/IN-en-20231030-popsignuptwoweeks-perspective_alpha_website_large.jpg'></img>
-   </div>
+    
     
     < div className={styles.formContainer}>
      <h2> Sign Up </h2>

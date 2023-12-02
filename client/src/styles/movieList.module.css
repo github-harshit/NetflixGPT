@@ -13,6 +13,4 @@
     
      border: 1px solid black;
 }
-.moviesContainer:-webkit-scrollbar {
-    display: none; /* Hide the scrollbar */
-  }
+ 
